@@ -1,0 +1,93 @@
+@import "/src/assets/scss/variable";
+
+$required_fields: $danger; // Use the $danger variable for required fields
+
+.bg-image {
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $secondary;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-container {
+  background-color: $white;
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba($default, 0.1); 
+}
+
+h2 {
+  @extend .text-center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%; 
+}
+
+.btn-primary {
+  background-color: $blue; 
+  color: $offwhite;
+  border: none;
+}
+.btn-primary:hover{
+  background-color: $blue_btn_hover;
+  color: $offwhite;
+}
+
+.btn-secondary {
+  background-color: $primary;
+  color: $offwhite; 
+}
+.btn-secondary:hover{
+  background-color: $primary_btn_hover;
+  color: $offwhite;
+}
+
+.btn {
+  width: 100px; 
+  margin-right: 10px; 
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.text-danger {
+  color: $danger; 
+  font-size: 14px;
+}
+
+.input-black {
+  color: black; 
+}
+
+.mt-3 {
+  margin-top: 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .col-3 {
+    width: calc(33.33% - 10px); 
+    margin-right: 10px;
+  }
+}

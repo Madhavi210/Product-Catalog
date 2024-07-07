@@ -1,0 +1,52 @@
+@import "/src/assets/scss/variable";
+
+
+// Custom classes
+.bg-image {
+  background-color: $secondary ;
+  background-size: cover;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.card {
+  border: none;
+  width: 450px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba($default, 0.1); 
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.text-danger {
+  color: $danger;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: $blue ;
+  color: $offwhite;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: $blue_btn_hover ; 
+  color: $offwhite; 
+}
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background-color: $primary; 
+  color: $offwhite; 
+}
+
+.btn-secondary:hover {
+  background-color: $primary_btn_hover; 
+
+}

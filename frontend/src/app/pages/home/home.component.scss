@@ -1,0 +1,44 @@
+/* home.component.scss */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .product-card {
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.product-list .card {
+  margin-bottom: 20px;
+}
+
+.input-group .form-control {
+  height: calc(2.25rem + 2px);
+}
+
+.input-group-append .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-icon {
+  color: white;
+}
+
+.clear-icon {
+  color: white;
+}

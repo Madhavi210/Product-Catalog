@@ -1,0 +1,35 @@
+<section class="container-fluid">
+  <app-navbar></app-navbar>
+
+    <!-- Search Input -->
+ <!-- Search Input -->
+ <div class="container mt-4">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="input-group">
+          <input type="text" formControlName="searchTerm" class="form-control" placeholder="Search products">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-search search-icon"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="onClear()">
+              <i class="fas fa-times clear-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+  <div class="product-list mt-2">
+    <div class="product-card" *ngFor="let product of products" (click)="viewProduct(product._id)">
+      <h2>{{ product.name }}</h2>
+      <img [src]="product.imageUrl" alt="{{ product.name }}">
+      <p>{{ product.description }}</p>
+      <p>Price: {{ product.price | currency }}</p>
+    </div>
+  </div>
+</section>

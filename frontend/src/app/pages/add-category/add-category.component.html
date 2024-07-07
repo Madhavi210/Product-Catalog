@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center mb-4">Add Category</h2>
+            <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+              <!-- Name Field -->
+              <div class="form-group p-2">
+                <label for="name" class="mb-2 font-weight-bold">Category Name</label>
+                <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter category name">
+                <div *ngIf="categoryForm.get('name')?.errors && (categoryForm.get('name')?.touched || categoryForm.get('name')?.dirty)" class="text-danger mt-1">
+                  <div *ngIf="categoryForm.get('name')?.hasError('required')">Category name is required.</div>
+                </div>
+              </div>
+  
+              <!-- Submit Button -->
+              <div class="text-center m-3">
+                <button type="submit" [disabled]="!categoryForm.valid" class="btn btn-primary m-1">Add Category</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                <button type="button" class="btn btn-secondary" routerLink="adminDashboard">Dashboard</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

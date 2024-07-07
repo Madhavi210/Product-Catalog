@@ -1,0 +1,66 @@
+<div class="container-fluid bg-image">
+    <div class="row justify-content-center align-items-center full-height">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="text-center mb-2">Add Product</h2>
+            <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+              <!-- Product Name Field -->
+              <div class="form-group p-1">
+                <label for="name" class="mb-2 font-weight-bold">Product Name</label>
+                <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter product name">
+                <div *ngIf="productForm.get('name')?.errors && (productForm.get('name')?.touched || productForm.get('name')?.dirty)" class="text-danger mt-1">
+                  <div *ngIf="productForm.get('name')?.hasError('required')">Product name is required.</div>
+                </div>
+              </div>
+  
+              <!-- Description Field -->
+              <div class="form-group p-1">
+                <label for="description" class="mb-2 font-weight-bold">Description</label>
+                <textarea id="description" formControlName="description" class="form-control" placeholder="Enter product description"></textarea>
+                <div *ngIf="productForm.get('description')?.errors && (productForm.get('description')?.touched || productForm.get('description')?.dirty)" class="text-danger mt-1">
+                  <div *ngIf="productForm.get('description')?.hasError('required')">Description is required.</div>
+                </div>
+              </div>
+  
+              <!-- Image URL Field -->
+              <div class="form-group p-1">
+                <label for="imageUrl" class="mb-2 font-weight-bold">Image URL</label>
+                <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control" placeholder="Enter image URL">
+                <div *ngIf="productForm.get('imageUrl')?.errors && (productForm.get('imageUrl')?.touched || productForm.get('imageUrl')?.dirty)" class="text-danger mt-1">
+                  <div *ngIf="productForm.get('imageUrl')?.hasError('required')">Image URL is required.</div>
+                </div>
+              </div>
+  
+              <!-- Price Field -->
+              <div class="form-group p-1">
+                <label for="price" class="mb-2 font-weight-bold">Price</label>
+                <input type="number" id="price" formControlName="price" class="form-control" placeholder="Enter price">
+                <div *ngIf="productForm.get('price')?.errors && (productForm.get('price')?.touched || productForm.get('price')?.dirty)" class="text-danger mt-1">
+                  <div *ngIf="productForm.get('price')?.hasError('required')">Price is required.</div>
+                  <div *ngIf="productForm.get('price')?.hasError('min')">Price must be a positive number.</div>
+                </div>
+              </div>
+  
+              <!-- Category ID Field -->
+              <div class="form-group p-1">
+                <label for="categoryId" class="mb-2 font-weight-bold">Category ID</label>
+                <input type="text" id="categoryId" formControlName="categoryId" class="form-control" placeholder="Enter category ID">
+                <div *ngIf="productForm.get('categoryId')?.errors && (productForm.get('categoryId')?.touched || productForm.get('categoryId')?.dirty)" class="text-danger mt-1">
+                  <div *ngIf="productForm.get('categoryId')?.hasError('required')">Category ID is required.</div>
+                </div>
+              </div>
+  
+              <!-- Submit Button -->
+              <div class="text-center m-1">
+                <button type="submit" [disabled]="!productForm.valid" class="btn fs-5 btn-primary m-1">Submit</button>
+                <button type="reset" class="btn fs-5 btn-secondary">Reset</button>
+                <button type="button" class="btn fs-5 btn-secondary" routerLink="/adminDashboard">Dashboard</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

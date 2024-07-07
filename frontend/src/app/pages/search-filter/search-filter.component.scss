@@ -1,0 +1,25 @@
+
+// search-filter.component.scss
+.container {
+    padding: 15px;
+  }
+  
+  .form-control {
+    margin-bottom: 10px;
+  }
+  
+  // product-list.component.scss
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .form-control {
+      margin-bottom: 5px;
+    }
+  }
+  
