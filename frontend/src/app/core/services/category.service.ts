@@ -37,9 +37,9 @@ export class CategoryService {
   }
 
   // PUT /api/category/:id - Update category by ID
-  updateCategory(categoryId: string, updates: any): Observable<any> {
+  updateCategory(categoryId: string, formData: any): Observable<any> {
     const url = `${this.apiUrl}/${categoryId}`;
-    return this.http.put<any>(url, updates)
+    return this.http.put<any>(url, formData)
       .pipe(
         catchError(this.handleError)
       );

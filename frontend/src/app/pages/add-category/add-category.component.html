@@ -3,7 +3,7 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <h2 class="text-center mb-4">Add Category</h2>
+            <h2 class="text-center mb-4">{{ isEdit ? 'Update Category': 'Add Category'}}</h2>
             <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
               <!-- Name Field -->
               <div class="form-group p-2">
@@ -16,9 +16,9 @@
   
               <!-- Submit Button -->
               <div class="text-center m-3">
-                <button type="submit" [disabled]="!categoryForm.valid" class="btn btn-primary m-1">Add Category</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-                <button type="button" class="btn btn-secondary" routerLink="adminDashboard">Dashboard</button>
+                <button type="submit" [disabled]="!categoryForm.valid" class="btn btn-primary m-1">{{ isEdit ? 'Update' : 'Save'}}</button>
+                <button type="reset" class="btn btn-secondary " routerLink="/adminDashboard/category">All Category</button>
+                <button type="button" class="btn btn-secondary m-1" routerLink="/adminDashboard">Dashboard</button>
               </div>
             </form>
           </div>

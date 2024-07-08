@@ -1,0 +1,55 @@
+<div class="container mt-4">
+    <h2>Category List</h2>
+
+    <div class="row mt-4">
+          <!-- Search Input -->
+    <div class=" col-lg-6">
+      <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <div class="row">
+          <div class="col-md-10">
+          <div class="input-group">
+              <input type="text" formControlName="searchTerm" class="form-control" placeholder="Search products">
+              <div class="input-group-append d-flex">
+              <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-search search-icon"></i>
+              </button>
+              <button type="button" class="btn btn-secondary" (click)="onClear()">
+                  <i class="fas fa-times clear-icon"></i>
+              </button>
+              </div>
+          </div>
+          </div>
+      </div>
+      </form>
+    </div> 
+    <div class="col-lg-6">
+      <button class="btn btn-success m-1" (click)="navigateToAddCategory()"><b>+ </b> Add New Category</button>
+      <button class="btn btn-secondary m-1" [routerLink]="['/adminDashboard']" routerLinkActive="router-link-active"  >Dashboard</button>
+    </div>
+  </div>
+    
+    <div class="table-responsive">
+        <table class="table table-striped mt-3">
+            <thead>
+              <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories">
+                <td>{{ category._id }}</td>
+                <td>{{ category.name }}</td>
+                <td>
+                  <button class="btn btn-sm btn-primary p-2 m-1" (click)="editCategory(category._id)">Edit</button>
+                  <button class="btn btn-sm btn-danger p-2 m-1" (click)="deleteCategory(category._id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  
+   
+  </div>
+  

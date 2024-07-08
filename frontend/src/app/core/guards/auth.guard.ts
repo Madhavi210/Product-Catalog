@@ -19,7 +19,7 @@ export class authGuard implements CanActivate {
     }
     else{
       this.router.navigate(['/login']);
-      console.log("not redirect to profile");
+      console.log("not redirecting");
       return false;
     }
 

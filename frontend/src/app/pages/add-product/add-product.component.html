@@ -3,7 +3,7 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-body">
-            <h2 class="text-center mb-2">Add Product</h2>
+            <h2 class="mb-4">{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
             <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
               <!-- Product Name Field -->
               <div class="form-group p-1">
@@ -53,9 +53,9 @@
   
               <!-- Submit Button -->
               <div class="text-center m-1">
-                <button type="submit" [disabled]="!productForm.valid" class="btn fs-5 btn-primary m-1">Submit</button>
+                <button type="submit" [disabled]="!productForm.valid" class="btn fs-5 btn-primary m-1">{{ isEditMode ? 'Submit' : 'Update' }}</button>
                 <button type="reset" class="btn fs-5 btn-secondary">Reset</button>
-                <button type="button" class="btn fs-5 btn-secondary" routerLink="/adminDashboard">Dashboard</button>
+                <button type="button" class="btn fs-5 btn-secondary m-1" routerLink="/adminDashboard">Dashboard</button>
               </div>
             </form>
           </div>

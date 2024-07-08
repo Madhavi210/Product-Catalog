@@ -18,10 +18,10 @@ export default class ProductRouter {
     this.router.get('/:id' ,ProductController.getProductById);
 
     // DELETE /api/products/:id - Delete product by ID
-    this.router.delete('/:id'  ,Authentication.authUser, Authentication.authAdmin, ProductController.deleteProduct);
+    this.router.delete('/:id'  ,Authentication.authUser, ProductController.deleteProduct);
 
     // PUT /api/products/:id - Update product by ID
-    this.router.put('/:id',Authentication.authUser, Authentication.authAdmin, ProductController.updateProduct);
+    this.router.put('/:id',Authentication.authUser, ProductController.updateProduct);
 
     // GET /api/products - Get all products
     this.router.get('/', ProductController.getAllProducts);

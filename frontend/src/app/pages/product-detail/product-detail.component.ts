@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from 'src/app/core/services/category.service';
 import { ProductService } from 'src/app/core/services/product.service';
-
+// import { Pipe, PipeTransform } from '@angular/core';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',

@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit{
   }
 
   viewProduct(productId: string): void {
-    console.log("card cick");
     if(productId){
       this.router.navigate(['/product', productId]);
     } else {
@@ -60,3 +59,4 @@ export class HomeComponent implements OnInit{
     this.getProducts();
   }
 }
+

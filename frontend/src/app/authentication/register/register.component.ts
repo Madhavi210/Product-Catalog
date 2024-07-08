@@ -36,17 +36,14 @@ export class RegisterComponent implements OnInit {
       const formData = this.registrationForm.value;
       this.userService.createUser(formData).subscribe(
         (response) => {
-          console.log("Registration is successful");
           Swal.fire('Success', 'Registration successful', 'success');
           this.router.navigate(['/login']);
         },
         (error) => {
-          console.error("Error in creating user", error);
           Swal.fire('Error', 'Registration failed', 'error');
         }
       );
     } else {
-      console.error("Error in submitting");
       Swal.fire('Error', 'Invalid form data', 'error');
     }
   }

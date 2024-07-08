@@ -31,8 +31,6 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
       this.loginService.login(email, password).subscribe({
         next: (response) => {
-          console.log('user logged in successfully', response);
-          // const role = localStorage.getItem('role');          
           if(response.role === 'admin') {
             this.router.navigate(['/adminDashboard']);
           } else {

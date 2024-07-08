@@ -19,7 +19,10 @@ import { AuthInterceptor } from './core/interceptor/auth.interceptor';
 import { ErrorHandlerInterceptor } from './core/interceptor/error-handler.interceptor';
 import { SearchFilterComponent } from './pages/search-filter/search-filter.component';
 import { ProductFilterPipe } from './core/pipe/product-filter.pipe';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CategoryDetailComponent } from './pages/category-detail/category-detail.component';
+import { RouterModule } from '@angular/router';
+import { AdminModule } from './pages/admin/admin.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,19 +30,18 @@ import { ProductFilterPipe } from './core/pipe/product-filter.pipe';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    AdminDashboardComponent,
     NavbarComponent,
-    ProductDetailComponent,
-    AddProductComponent,
-    AddCategoryComponent,
     SearchFilterComponent,
-    ProductFilterPipe
+    ProductDetailComponent,
+    ProductFilterPipe,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule    
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},

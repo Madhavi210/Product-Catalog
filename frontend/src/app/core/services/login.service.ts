@@ -43,13 +43,6 @@ export class LoginService {
     return localStorage.getItem('role')
   }
 
-  // isAdmin(): boolean {
-  //   this.userRole = localStorage.getItem('role');
-  //   if(this.userRole === 'admin'){
-  //     return true;
-  //   }
-  // }
-
   isLoggedIn(): boolean {
     return this.isAuthenticated;
   }

@@ -11,16 +11,16 @@ export default class CategoryRouter {
 
   private routes() {
     // POST /api/categories - Create a new category
-    this.router.post('/' ,Authentication.authUser, Authentication.authAdmin, CategoryController.createCategory);
+    this.router.post('/' ,Authentication.authUser, CategoryController.createCategory);
 
     // GET /api/categories/:id - Get category by ID
     this.router.get('/:id', CategoryController.getCategoryById);
 
     // DELETE /api/categories/:id - Delete category by ID
-    this.router.delete('/:id' ,Authentication.authUser, Authentication.authAdmin, CategoryController.deleteCategory);
+    this.router.delete('/:id' ,Authentication.authUser, CategoryController.deleteCategory);
 
     // PUT /api/categories/:id - Update category by ID
-    this.router.put('/:id' ,Authentication.authUser, Authentication.authAdmin, CategoryController.updateCategory);
+    this.router.put('/:id' ,Authentication.authUser, CategoryController.updateCategory);
 
     // GET /api/categories - Get all categories
     this.router.get('/', CategoryController.getAllCategories);

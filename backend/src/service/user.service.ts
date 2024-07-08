@@ -29,11 +29,11 @@ export default class UserService {
             name,
             email,
             password: hashedPassword,
-            role // Assuming default role for new users
+            role 
         });
 
         await newUser.save({ session });
-        return newUser.toObject(); // Convert Mongoose document to plain object
+        return newUser.toObject(); 
     }
 
     public static async getUserById(id: string): Promise<IUser | null> {

@@ -23,7 +23,7 @@ export default class ProductService {
         });
 
         await newProduct.save({ session });
-        return newProduct.toObject(); // Convert Mongoose document to plain object
+        return newProduct.toObject(); 
     }
 
     public static async getProductById(id: string): Promise<IProduct | null> {

@@ -1,4 +1,9 @@
 /* home.component.scss */
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
 .product-list {
   display: flex;
   flex-wrap: wrap;
