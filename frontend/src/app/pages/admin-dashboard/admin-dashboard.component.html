@@ -1,6 +1,6 @@
 <section>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+    <div class="container-fluid">
       <a class="navbar-brand" >Admin Dashboard</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">{{ product.description }}</p>
-            <p class="card-text text-success">Price: {{ product.price | currency }}</p>
+            <p class="card-text text-success">Price: {{ product.price | currency:'INR' }}</p>
             <p class="card-text">Category: {{ product.categoryName }}</p>
             <p class="card-text">Created At: {{ product.createdAt | date:'medium'}}</p>
             <p class="card-text">Updated At: {{ product.updatedAt | date:'medium' }}</p>

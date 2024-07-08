@@ -37,6 +37,8 @@ export default class App {
         this.app.use("/api/user", userRoute);
         this.app.use("/api/product", productRoute);
         this.app.use("/api/category", categoryRoute);
+        this.app.use('/uploads', express.static(path.join(__dirname, 'uploads') ));        
+
 
         this.app.use(errorHandlerMiddleware);
     }

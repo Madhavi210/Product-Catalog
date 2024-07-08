@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class HomeComponent implements OnInit{
   products: any[] = [];
   searchForm: FormGroup;
-
+  
 
   constructor(private fb: FormBuilder,private router:Router, private productService: ProductService) { 
     this.searchForm = fb.group({

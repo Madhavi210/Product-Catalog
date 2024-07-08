@@ -6,8 +6,15 @@
     <div class="col-md-6 border rounded p-3">
       <h1 class="display-4">{{ product.name }}</h1>
       <p class="lead">{{ product.description }}</p>
-      <p class="h4">Price: <span class="text-success">{{ product.price | currency }}</span></p>
+      <p class="h4">Price: <span class="text-success">{{ product.price | currency:'INR' }}</span></p>
       <p class="h5">Category: <span class="text-primary">{{ categoryName }}</span></p>
+      <div class="actions">
+        <span class="icon like-icon m-1 fs-3 text-danger" >
+          <i class="fas fa-heart" [class.far]="!product.liked" [class.fas]="product.liked"></i>
+        </span>
+        <span class="icon share-icon fs-3 m-2"><i class="fas fa-share-alt"></i></span>
+        <span class="icon cart-icon m-1 fs-3 text-success"><i class="fas fa-shopping-cart"></i></span>
+    </div>
     </div>
   </div>
 </div>

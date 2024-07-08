@@ -12,6 +12,7 @@ export class ProductDetailComponent {
 
   product: any;
   categoryName: string | null = null;
+  liked!: false;
 
   constructor(private categoryService:CategoryService,private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -44,4 +45,8 @@ export class ProductDetailComponent {
       }
     )
   }
+
+  // toggleLike():void {
+  //   this.liked += this.liked
+  // }
 }

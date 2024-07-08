@@ -1,5 +1,6 @@
 import express from 'express';
 import UserController from '../controller/user.controller';
+import upload from '../utils/fileUpload';
 
 export default class UserRouter {
   private router: express.Router;
@@ -11,7 +12,9 @@ export default class UserRouter {
 
   private routes() {
     // POST /api/users - Create a new user
-    this.router.post('/', UserController.createUser);
+    this.router.post('/', 
+      upload.single('file'),
+      UserController.createUser);
 
     // GET /api/users/:id - Get user by ID
     this.router.get('/:id', UserController.getUserById);
