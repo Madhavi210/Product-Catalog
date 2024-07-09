@@ -14,8 +14,9 @@ export default class UserService {
         email: string,
         password: string,
         role: string,
+        profilePic: string,
         session: ClientSession
-    ): Promise<IUser> {
+    ): Promise<IUser> {        
         const existingUser = await User.findOne({ email }).session(session);
         if (existingUser) {
             throw new AppError(
@@ -29,7 +30,8 @@ export default class UserService {
             name,
             email,
             password: hashedPassword,
-            role 
+            role ,
+            profilePic
         });
 
         await newUser.save({ session });

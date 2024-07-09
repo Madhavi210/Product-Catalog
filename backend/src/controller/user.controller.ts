@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import Express,{ Request, Response, NextFunction } from 'express';
 import mongoose, { ClientSession } from 'mongoose';
 import UserService from '../service/user.service';
 import AppError from '../utils/errorHandler';
@@ -7,18 +7,26 @@ import { StatusCode } from '../enum/statusCode';
 import { User } from '../model/user.model';
 import IUser  from '../interface/user.interface';
 import { userRole } from '../enum/userRole';
+import multer from 'multer';
+import path from 'path';
+import upload from '../utils/fileUpload';
 
 export default class UserController {
-    public static async createUser(req: Request, res: Response, next: NextFunction): Promise<void> {
-        const { name, email, password, role } = req.body;
+    public static async createUser(req: Request, res: Response, next: NextFunction): Promise<void> {        
+        const { name, email, password, role } = req.body;        
+        const profilePic = req.file?.path;
+        if (!profilePic) {
+            throw new AppError('File not uploaded', StatusCode.BAD_REQUEST);
+          }             
         const session = await mongoose.startSession();
         session.startTransaction();
         try {
-            const newUser = await UserService.createUser(name, email, password, role, session);
+            const newUser = await UserService.createUser(name, email, password, role, profilePic ,session);            
             await session.commitTransaction();
             session.endSession();
             res.status(StatusCode.CREATED).json(newUser);
         } catch (error) {
+        
             await session.abortTransaction();
             session.endSession();
             next(error);

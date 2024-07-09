@@ -25,7 +25,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
     return next.handle(cloneReq).pipe(
       catchError((error) => {
-        console.error('Error in interceptor:', error);
+        // console.error('Error in interceptor:', error);
         return throwError(error);
       })
     );

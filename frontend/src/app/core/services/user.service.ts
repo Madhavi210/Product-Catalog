@@ -12,8 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  createUser(user: Partial<IUser>): Observable<IUser> {
-    return this.http.post<IUser>(`${this.apiUrl}`, user);
+  createUser(formData: any): Observable<IUser> {
+    return this.http.post<IUser>(`${this.apiUrl}`, formData);
   }
 
   getUserById(userId: string): Observable<IUser> {
@@ -24,7 +24,7 @@ export class UserService {
     return this.http.get<IUser[]>(this.apiUrl);
   }
 
-  updateUser(userId: string, updates: Partial<IUser>): Observable<IUser> {
+  updateUser(userId: string, updates: any): Observable<IUser> {
     return this.http.put<IUser>(`${this.apiUrl}/${userId}`, updates);
   }
 

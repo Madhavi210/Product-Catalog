@@ -4,7 +4,6 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { LoginComponent } from './authentication/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { PageNotFoundComponentComponent } from './pages/page-not-found-component/page-not-found-component.component';
 
 
 const routes: Routes = [

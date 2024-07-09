@@ -13,29 +13,39 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterComponent implements OnInit {
 
   registrationForm!: FormGroup;
-  userId: string | null = null;
+  // selectFile: File | null = null;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private userService: UserService
-  ) {
+  ) {}
+
+  ngOnInit(): void {
     this.registrationForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['',[Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['CUSTOMER', Validators.required]
+      role: ['customer', Validators.required],
+      profilePic: [null, Validators.required]
     });
-  }
-
-  ngOnInit(): void {}
+   }
 
   onSubmit(): void {
-    if (this.registrationForm.valid) {
-      const formData = this.registrationForm.value;
+    if (this.registrationForm.valid ) {
+      const formData = new FormData();
+      formData.append('name', this.registrationForm.get('name')?.value);
+      formData.append('email', this.registrationForm.get('email')?.value);
+      formData.append('password', this.registrationForm.get('password')?.value);
+      formData.append('role', this.registrationForm.get('role')?.value);
+      const profilePicFile = this.registrationForm.get('profilePic')?.value;
+      if (profilePicFile) {
+        formData.append('profilePic', profilePicFile);
+      }
+      
       this.userService.createUser(formData).subscribe(
-        (response) => {
+        (response) => {          
           Swal.fire('Success', 'Registration successful', 'success');
           this.router.navigate(['/login']);
         },
@@ -47,4 +57,13 @@ export class RegisterComponent implements OnInit {
       Swal.fire('Error', 'Invalid form data', 'error');
     }
   }
+
+  onFileChange(event: any): void {
+    const file =( event.target as HTMLInputElement).files?.[0];
+      this.registrationForm.patchValue({
+        profilePic: file
+      });
+    
+  }
+  
 }
